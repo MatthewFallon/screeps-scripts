@@ -8,5 +8,8 @@ if (!(Memory.scale)) {
 }
 
 module.exports.loop = function() {
-    console.log(statusCreep.speed(Game.creeps["Harvester1"]));
-}
+    for (let each in Game.creeps) {
+        // noinspection JSUnfilteredForInLoop
+        console.log(statusCreep.speed(Game.creeps[each]));
+    }
+};
