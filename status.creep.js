@@ -1,19 +1,14 @@
-/*
- * Module code goes here. Use 'module.exports' to export things:
- * module.exports.thing = 'a thing';
+/**
+ * A series of helper functions designed to quickly calculate extra statuses of each creep.
+ * Uses creep as a parameter and acts as static calculation functions.
  *
- * You can import it from another modules like this:
- * var mod = require('status.creep');
- * mod.thing == 'a thing'; // true
+ * @type {Object}
  */
- 
- 
 module.exports = {
 
     /**
-     * This helper method returns a number corresponding to the number of ticks required for a creep to move one
-     * square on plains (minimum is 1). This method is rendered useless in other contexts and should only be used for
-     * referential speed of creeps.
+     * Returns a number corresponding to the number of ticks required for a creep to move one square on plains.
+     * This method is rendered useless in other contexts and should only be used for referential speed of creeps.
      *
      * @param creepToCalculate The creep to perform the calculation on.
      * @return {number} The relative speed of the creep in number of ticks per 1 square of movement.
@@ -52,8 +47,8 @@ module.exports = {
     },
 
     /**
-     * Calculates the total weight of a creep as determined by whether it is carrying anything and how many
-     * non-MOVE body parts it has.
+     * Calculates the total weight of a creep as determined by how many non-MOVE body parts it has.
+     * Takes into account whether the creep is carrying anything.
      *
      * @param creepToCalculate The creep to perform the calculation on.
      * @return {number} The current calculated weight for the creep.
@@ -93,8 +88,8 @@ module.exports = {
     },
 
     /**
-     * This method will calculate the number of ticks required for a creep to reach the nearest spawn within their
-     * current room, using pos.findPathTo(), room.getTerrain(), and speed() to properly calculate the required ticks.
+     * Calculates the number of ticks required for a creep to reach the nearest spawn within their current room.
+     * Uses pos.findPathTo(), room.getTerrain(), and it's speed to properly calculate the required ticks.
      *
      * Only works to calculate for the path in the current room.
      *

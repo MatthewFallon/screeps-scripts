@@ -1,10 +1,11 @@
 
  let statusCreep = require('status.creep');
+ let init = require('initialize');
 
 
      
 if (!(Memory.scale)) {
-    Memory.scale = 5;
+    init.initialize();
 }
 
 module.exports.loop = function() {
