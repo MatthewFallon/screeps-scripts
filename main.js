@@ -1,5 +1,5 @@
 
- var statusCreep = require('status.creep');
+ let statusCreep = require('status.creep');
 
 
      
