@@ -5,6 +5,12 @@
  * @type {Object}
  */
 module.exports = {
+
+
+    spawnNext: function (spawn) {
+
+    },
+
     /**
      *
      * @param {StructureSpawn} spawn The spawn to run calculations on.
@@ -13,13 +19,5 @@ module.exports = {
         if (spawn.room.memory.spawnQueue[0] && !(spawn.spawning)) {
             
         }
-    },
-
-    /**
-     *
-     * @param {Spawnable} spawnable
-     */
-    // timeToSpawn: function (spawnable) {
-    //     new Spawna
-    // }
+    }
 };
