@@ -15,7 +15,7 @@ module.exports = {
         console.log(roomScale);
         if (!Memory.war) {
             console.log("not war");
-            if (roomScale < spawn.room.find(FIND_MY_CREEPS).length) {
+            if (roomScale > spawn.room.find(FIND_MY_CREEPS).length) {
                 console.log("less than max");
                 if (spawn.room.find(FIND_MY_CREEPS,
                     {
