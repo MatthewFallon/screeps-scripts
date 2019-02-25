@@ -98,8 +98,8 @@ module.exports = {
      * or -1 if there is no path.
      */
     ticksToSpawn: function (creepToCalculate) {
-        let movement = creepMovement(creepToCalculate);
-        let weight = creepWeight(creepToCalculate);
+        let movement = this.creepMovement(creepToCalculate);
+        let weight = this.creepWeight(creepToCalculate);
         let time = 0;
         const terrain = creepToCalculate.room.getTerrain();
         for (let each in creepToCalculate.pos.findPathTo(creepToCalculate.pos.findClosestByPath(FIND_MY_SPAWNS))){
