@@ -8,7 +8,6 @@ module.exports = {
      */
     standardAction: function (spawn) {
         let spawnable = statusSpawn.shouldSpawn(spawn);
-        console.log(spawnable);
         let energy = spawn.energy;
         if (spawnable && spawnable !== "renew") {
             let body = [];
