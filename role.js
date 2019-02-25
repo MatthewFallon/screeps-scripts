@@ -14,13 +14,13 @@ module.exports = {
      * @param {Creep} creep
      */
     standardAction: function (creep) {
-        console.log(creep.memory.status);
         if ((creep.ticksToLive - 10) <= statusCreep.ticksToSpawn(creep)) {
             creep.memory.status = "renew";
             creep.say("Going to " + creep.memory.status);
             creep.moveTo(creep.room.find(FIND_MY_SPAWNS)[0]);
         }
         else if (creep.memory.status === "work") {
+            creep.say("Working");
             eval(creep.memory.role).standardAction(creep); //evaluates the role variable to one of the variables above.
         }
     }
