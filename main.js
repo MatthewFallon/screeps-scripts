@@ -13,6 +13,7 @@ module.exports.loop = function() {
         role.standardAction(Game.creeps[each]);
     }
     for (let each in Game.spawns) {
+        console.log(each);
         spawn.standardAction(each);
     }
 };
