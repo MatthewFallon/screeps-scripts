@@ -19,7 +19,7 @@ module.exports = {
 
         if (creep.memory.status === "work") {
             let source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
-            creep.say(source);
+            creep.say(creep.harvest(source));
             if (source && creep.harvest(source) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(source.pos);
             }
