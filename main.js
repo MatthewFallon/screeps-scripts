@@ -1,7 +1,7 @@
 
- let statusCreep = require('status.creep');
  let init = require('initialize');
-
+ let role = require('role');
+ let spawn = require("spawn");
 
      
 if (!(Memory.scale)) {
@@ -10,7 +10,9 @@ if (!(Memory.scale)) {
 
 module.exports.loop = function() {
     for (let each in Game.creeps) {
-        // noinspection JSUnfilteredForInLoop
-        console.log(statusCreep.speed(Game.creeps[each]));
+        role.standardAction(Game.creeps[each]);
+    }
+    for (let each in Game.spawns) {
+        spawn.standardAction(each);
     }
 };
