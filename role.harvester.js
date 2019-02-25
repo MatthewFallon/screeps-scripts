@@ -19,6 +19,7 @@ module.exports = {
             creep.memory.status = "return";
         }
 
+        creep.say(creep.memory.status);
         if (creep.memory.status === "work") {
             let source = creep.pos.findClosestByPath(FIND_SOURCES_ACTIVE);
             creep.say(creep.harvest(source));
