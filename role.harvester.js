@@ -9,7 +9,7 @@ module.exports = {
      * @param {Creep} creep
      */
     standardAction: function (creep) {
-        creep.say("harvesting")
+        creep.say(creep.carry[RESOURCE_ENERGY]);
         if (creep.carry[RESOURCE_ENERGY] === 0) {
             creep.memory.status = "work"
         }
