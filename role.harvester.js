@@ -10,7 +10,6 @@ module.exports = {
      */
     standardAction: function (creep) {
 
-        console.log("running");
         if (creep.carry[RESOURCE_ENERGY] === 0) {
             creep.say("work");
             creep.memory.status = "work"
@@ -34,7 +33,6 @@ module.exports = {
                     return structure.structureType === STRUCTURE_SPAWN;
                 }
             });
-            console.log(creep.transfer(spawn, RESOURCE_ENERGY));
             if (spawn && creep.transfer(spawn, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(spawn);
             }
