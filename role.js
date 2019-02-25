@@ -14,7 +14,7 @@ module.exports = {
      * @param {Creep} creep
      */
     standardAction: function (creep) {
-        console.log("running")
+        console.log(creep.memory.status);
         if ((creep.ticksToLive - 10) <= statusCreep.ticksToSpawn(creep)) {
             creep.memory.status = "renew";
             creep.say("Going to " + creep.memory.status);

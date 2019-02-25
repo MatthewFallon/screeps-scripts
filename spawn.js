@@ -27,7 +27,8 @@ module.exports = {
             }
             let opts = {
                 memory: {
-                    role: spawnable
+                    role: spawnable,
+                    status: "work"
                 }
             };
             spawn.spawnCreep(body, name, opts);
