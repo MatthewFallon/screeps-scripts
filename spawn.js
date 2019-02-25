@@ -18,7 +18,7 @@ module.exports = {
             }
             let name = 1;
             while (typeof name === "number") {
-                if (Game.creeps.indexOf(spawnable + name) === -1) {
+                if (!Game.creeps[spawnable + name]) {
                     name = spawnable + name;
                 }
                 else {
