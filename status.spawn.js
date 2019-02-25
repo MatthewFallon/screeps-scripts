@@ -12,11 +12,8 @@ module.exports = {
      */
     spawnNext: function (spawn) {
         let roomScale = (spawn.room.controller.level * Memory.scaleTo);
-        console.log(roomScale);
         if (!Memory.war) {
-            console.log("not war");
             if (roomScale > spawn.room.find(FIND_MY_CREEPS).length) {
-                console.log("less than max");
                 if (spawn.room.find(FIND_MY_CREEPS,
                     {
                         filter: function (creep) {
@@ -60,7 +57,6 @@ module.exports = {
      */
     shouldSpawn: function (spawn) {
         let spawnable = this.spawnNext(spawn);
-        console.log(spawnable);
         if (spawnable && !(spawn.spawning)) {
             for (let each in spawn.room.find(FIND_MY_CREEPS)) {
                 if (each.pos.findClosestByPath(FIND_MY_SPAWNS).id === spawn.id && this.spawnTime(spawn) > (each.ticksToLive - 10)) {

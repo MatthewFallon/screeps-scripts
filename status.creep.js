@@ -103,6 +103,7 @@ module.exports = {
         let time = 0;
         const terrain = creepToCalculate.room.getTerrain();
         for (let each in creepToCalculate.pos.findPathTo(creepToCalculate.pos.findClosestByPath(FIND_MY_SPAWNS))){
+            console.log(each);
             // noinspection JSUnfilteredForInLoop
             if (creepToCalculate.room.getPositionAt(each.x, each.y).lookFor(LOOK_STRUCTURES)[0].structureType === STRUCTURE_ROAD) {
                 time += (weight * 1) - (movement * 2);
