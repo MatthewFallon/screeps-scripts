@@ -11,9 +11,11 @@ module.exports = {
     standardAction: function (creep) {
 
         if (creep.carry[RESOURCE_ENERGY] === 0) {
+            creep.say("work");
             creep.memory.status = "work"
         }
         else if (_.sum(creep.carry) === creep.carryCapacity) {
+            creep.say("return");
             creep.memory.status = "return";
         }
 
