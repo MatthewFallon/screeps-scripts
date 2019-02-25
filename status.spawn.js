@@ -58,9 +58,7 @@ module.exports = {
     shouldSpawn: function (spawn) {
         let spawnable = this.spawnNext(spawn);
         if (spawnable && !(spawn.spawning)) {
-            console.log(spawn.room.find(FIND_MY_CREEPS)[0].name);
             for (let each of spawn.room.find(FIND_MY_CREEPS)) {
-                console.log(each);
                 if (each.pos.findClosestByPath(FIND_MY_SPAWNS).id === spawn.id && this.spawnTime(spawn) > (each.ticksToLive - 10)) {
                     return "renew";
                 }
