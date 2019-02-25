@@ -20,7 +20,6 @@ module.exports = {
             creep.moveTo(creep.room.find(FIND_MY_SPAWNS)[0]);
         }
         else if (creep.memory.status === "work") {
-            creep.say("Working");
             eval(creep.memory.role).standardAction(creep); //evaluates the role variable to one of the variables above.
         }
     }
