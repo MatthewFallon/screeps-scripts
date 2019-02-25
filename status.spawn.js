@@ -41,7 +41,7 @@ module.exports = {
      * @param {StructureSpawn} spawn
      */
     spawnTime: function(spawn) {
-        let energy = spawn.energy;
+        let energy = spawn.energyCapacity;
         let time = 0;
         while (energy > 50) {
             if (energy > 100) {energy -= 100; time += 3;}//one WORK part
@@ -57,7 +57,7 @@ module.exports = {
      */
     shouldSpawn: function (spawn) {
         let spawnable = this.spawnNext(spawn);
-        if (spawnable && !(spawn.spawning)) {
+        if (spawnable && !(spawn.spawning) && spawn.energy === spawn.energyCapacity) {
             for (let each of spawn.room.find(FIND_MY_CREEPS)) {
                 if (each.pos.findClosestByPath(FIND_MY_SPAWNS).id === spawn.id && this.spawnTime(spawn) > (each.ticksToLive - 10)) {
                     return "renew";
