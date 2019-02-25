@@ -102,23 +102,23 @@ module.exports = {
         let weight = this.creepWeight(creepToCalculate);
         let time = 0;
         const terrain = creepToCalculate.room.getTerrain();
-        for (let each in creepToCalculate.pos.findPathTo(creepToCalculate.pos.findClosestByPath(FIND_MY_SPAWNS))){
-            console.log(each);
-            // noinspection JSUnfilteredForInLoop
-            if (creepToCalculate.room.getPositionAt(each.x, each.y).lookFor(LOOK_STRUCTURES)[0].structureType === STRUCTURE_ROAD) {
-                time += (weight * 1) - (movement * 2);
-            }
-            else {
+        if (creepToCalculate.pos.findPathTo(creepToCalculate.pos.findClosestByPath(FIND_MY_SPAWNS)) !== 0) {
+            for (let each in creepToCalculate.pos.findPathTo(creepToCalculate.pos.findClosestByPath(FIND_MY_SPAWNS))) {
                 // noinspection JSUnfilteredForInLoop
-                switch (terrain.get(each.x, each.y)) {
-                    case TERRAIN_MASK_SWAMP:
-                        time += (weight * 10) - (movement * 2);
-                        break;
-                    case 0:
-                        time += (weight * 2) - (movement * 2);
-                        break;
-                    default:
-                        return -1;
+                if (creepToCalculate.room.getPositionAt(each.x, each.y).lookFor(LOOK_STRUCTURES)[0].structureType === STRUCTURE_ROAD) {
+                    time += (weight * 1) - (movement * 2);
+                } else {
+                    // noinspection JSUnfilteredForInLoop
+                    switch (terrain.get(each.x, each.y)) {
+                        case TERRAIN_MASK_SWAMP:
+                            time += (weight * 10) - (movement * 2);
+                            break;
+                        case 0:
+                            time += (weight * 2) - (movement * 2);
+                            break;
+                        default:
+                            return -1;
+                    }
                 }
             }
         }
