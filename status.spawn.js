@@ -56,10 +56,10 @@ module.exports = {
      * @param {StructureSpawn} spawn The spawn to run calculations on.
      */
     shouldSpawn: function (spawn) {
-        let spawnable = spawnNext(spawn);
+        let spawnable = this.spawnNext(spawn);
         if (spawnable && !(spawn.spawning)) {
             for (let each in spawn.room.find(FIND_MY_CREEPS)) {
-                if (each.pos.findClosestByPath(FIND_MY_SPAWNS).id === spawn.id && spawnTime(spawn) > (each.ticksToLive - 10)) {
+                if (each.pos.findClosestByPath(FIND_MY_SPAWNS).id === spawn.id && this.spawnTime(spawn) > (each.ticksToLive - 10)) {
                     return "renew";
                 }
             }
