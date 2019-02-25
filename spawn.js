@@ -7,8 +7,8 @@ module.exports = {
      * @param {StructureSpawn} spawn
      */
     standardAction: function (spawn) {
-        console.log(spawn.name)
         let spawnable = statusSpawn.shouldSpawn(spawn);
+        console.log(spawnable);
         let energy = spawn.energy;
         if (spawnable && spawnable !== "renew") {
             let body = [];
