@@ -34,11 +34,15 @@ module.exports = {
                     return structure.structureType === STRUCTURE_CONTROLLER;
                 }
             });
-            if (site || creep.build(site) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(site.pos);
+            if (site) {
+                if (creep.build(site) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(site.pos);
+                }
             }
-            else if (repair || creep.repair(repair) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(repair.pos);
+            else if (repair) {
+                if (creep.repair(repair) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(repair.pos);
+                }
             }
             else if (creep.upgradeController(controller) === ERR_NOT_IN_RANGE){
                 creep.moveTo(controller.pos);
