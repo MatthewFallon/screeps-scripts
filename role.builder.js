@@ -24,7 +24,7 @@ module.exports = {
         }
         else if (creep.memory.status === "return") {
             let site = creep.pos.findClosestByPath(FIND_MY_CONSTRUCTION_SITES);
-            let repair = creep.pos.findClosestByPath(FIND_MY_STRUCTURES, {
+            let repair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
                 filter: function (structure) {
                     return structure.hits < structure.hitsMax;
                 }
