@@ -33,8 +33,20 @@ module.exports = {
                     return structure.structureType === STRUCTURE_SPAWN;
                 }
             });
-            if (spawn && creep.transfer(spawn, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(spawn);
+            let controller = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+                filter: function (structure) {
+                    return structure.structureType === STRUCTURE_CONTROLLER;
+                }
+            });
+            if (spawn && spawn.energy !== spawn.energyCapacity) {
+                if (creep.transfer(spawn, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(spawn);
+                }
+            }
+            else if (controller) {
+                if (creep.upgradeController(controller) === ERR_NOT_IN_RANGE) {
+                    creep.moveTo(controller);
+                }
             }
         }
 
