@@ -37,7 +37,7 @@ module.exports = {
             for (let each of spawn.pos.findInRange(FIND_MY_CREEPS, 3)) {
                 console.log(each);
                 if(each.memory.status === "renew") {
-                    spawn.renewCreep(Game.creeps[each]);
+                    spawn.renewCreep(each);
                 }
                 if (each.ticksToLive === 1500) {
                     each.memory.status = "work";
