@@ -66,6 +66,6 @@ module.exports = {
             }
             return spawnable;
         }
-        return false;
+        return "renew";
     }
 };
