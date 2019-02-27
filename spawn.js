@@ -34,12 +34,11 @@ module.exports = {
             spawn.spawnCreep(body, name, opts);
         }
         else if (spawnable === "renew") {
-            for (let each of spawn.pos.findInRange(FIND_MY_CREEPS, 64)) {
+            for (let each of spawn.pos.findInRange(FIND_MY_CREEPS, 3)) {
                 console.log(each);
                 if(each.memory.status === "renew") {
                     spawn.renewCreep(each);
                 }
-                each.memory.status = "work";
                 if (each.ticksToLive === 1500) {
                     each.memory.status = "work";
                 }
