@@ -14,8 +14,8 @@ module.exports = {
      * @param {Creep} creep
      */
     standardAction: function (creep) {
-        console.log(creep);
         if ((creep.ticksToLive - 10) <= statusCreep.ticksToSpawn(creep)) {
+            console.log(creep);
             creep.memory.status = "renew";
             creep.say("Going to " + creep.memory.status);
             creep.moveTo(creep.room.find(FIND_MY_SPAWNS)[0]);
