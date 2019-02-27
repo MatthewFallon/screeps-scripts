@@ -38,6 +38,7 @@ module.exports = {
                     filter: function (creep) {
                         creep.memory.status = "renew";
                     }})) {
+                console.log(each);
                 spawn.renewCreep(Game.creeps[each]);
                 if (Game.creeps[each].ticksToLive === 1500) {
                     Game.creeps[each].memory.status = "work";
