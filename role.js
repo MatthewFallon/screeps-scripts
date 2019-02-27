@@ -15,12 +15,12 @@ module.exports = {
      */
     standardAction: function (creep) {
         if ((creep.ticksToLive - 10) <= statusCreep.ticksToSpawn(creep)) {
-            console.log(creep);
             creep.memory.status = "renew";
             creep.say("Going to " + creep.memory.status);
             creep.moveTo(creep.room.find(FIND_MY_SPAWNS)[0]);
         }
         else if (creep.memory.status === "work" || creep.memory.status === "return") {
+            console.log(creep);
             eval(creep.memory.role).standardAction(creep); //evaluates the role variable to one of the variables above.
         }
     }
