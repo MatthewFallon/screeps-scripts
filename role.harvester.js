@@ -9,6 +9,7 @@ module.exports = {
      * @param {Creep} creep
      */
     standardAction: function (creep) {
+        console.log(creep);
 
         if (creep.carry[RESOURCE_ENERGY] === 0) {
             creep.say("work");
