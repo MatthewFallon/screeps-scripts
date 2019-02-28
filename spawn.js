@@ -36,7 +36,7 @@ module.exports = {
         else if (spawnable === "renew") {
             for (let each of spawn.pos.findInRange(FIND_MY_CREEPS, 3)) {
                 if(each.memory.status === "renew") {
-                    if (spawn.renewCreep(each) === ERR_NOT_ENOUGH_ENERGY || each.ticksToLive === 1500) {
+                    if (spawn.renewCreep(each) === ERR_NOT_ENOUGH_ENERGY || each.ticksToLive >= 1450) {
                         each.memory.status = "work";
                     }
                 }
