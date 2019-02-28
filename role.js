@@ -19,6 +19,12 @@ module.exports = {
             creep.say("Going to " + creep.memory.status);
             creep.moveTo(creep.room.find(FIND_MY_SPAWNS)[0]);
         }
+
+        if (creep.memory.status === "renew") {
+            if (creep.transfer(creep.room.find(FIND_MY_SPAWNS)[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.room.find(FIND_MY_SPAWNS)[0]);
+            }
+        }
         else if (creep.memory.status === "work" || creep.memory.status === "return") {
             eval(creep.memory.role).standardAction(creep); //evaluates the role variable to one of the variables above.
         }
