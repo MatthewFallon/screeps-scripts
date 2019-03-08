@@ -34,7 +34,7 @@ module.exports = {
             }
         }
         else if (creep.memory.status === "work" || creep.memory.status === "return") {
-            this.roleConstants.standardAction(creep); //evaluates the role variable to one of the variables above.
+            this.roleConstants[creep.memory.role].standardAction(creep); //evaluates the role variable to one of the variables above.
         }
     }
 };
