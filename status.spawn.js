@@ -20,7 +20,9 @@ module.exports = {
     spawnNext: function (spawn) {
         let openSources = 0;
         for (let each in spawn.room.find(FIND_SOURCES)) {
+            console.log(each);
             for (let position in spawn.room.lookForAtArea(LOOK_TERRAIN, each.pos.y + 1, each.pos.x - 1, each.pos.y - 1, each.pos.x + 1, true)) {
+                console.log(position);
                 if (position.terrain !== "wall") {
                     openSources += 1;
                 }
