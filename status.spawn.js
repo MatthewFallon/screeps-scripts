@@ -18,7 +18,15 @@ module.exports = {
      * @param {StructureSpawn} spawn
      */
     spawnNext: function (spawn) {
-        let roomScale = (spawn.room.controller.level * Memory.scaleTo);
+        let openSources = 0;
+        for (let each in spawn.room.find(FIND_SOURCES)) {
+            for (let position in spawn.room.lookForAtArea(LOOK_TERRAIN, each.pos.y + 1, each.pos.x - 1, each.pos.y - 1, each.pos.x + 1, true)) {
+                if (position.terrain !== "wall") {
+                    openSources += 1;
+                }
+            }
+        }
+        let roomScale = (spawn.room.controller.level * openSources);
         if (!Memory.war) {
             if (roomScale > spawn.room.find(FIND_MY_CREEPS).length) {
                 if (spawn.room.find(FIND_MY_CREEPS,
