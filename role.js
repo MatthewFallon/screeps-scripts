@@ -1,4 +1,3 @@
-
 let harvester = require("role.harvester");
 let archer = require("role.archer");
 let builder = require("role.builder");
@@ -8,6 +7,15 @@ let support = require("role.support");
 let statusCreep = require("status.creep");
 
 module.exports = {
+
+    roleConstants: {
+        "harvester": harvester,
+        "archer": archer,
+        "builder": builder,
+        "warrior": warrior,
+        "explorer": explorer,
+        "support": support
+    },
 
     /**
      *
@@ -26,7 +34,7 @@ module.exports = {
             }
         }
         else if (creep.memory.status === "work" || creep.memory.status === "return") {
-            eval(creep.memory.role).standardAction(creep); //evaluates the role variable to one of the variables above.
+            this.roleConstants.standardAction(creep); //evaluates the role variable to one of the variables above.
         }
     }
 };

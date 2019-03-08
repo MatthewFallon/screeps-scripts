@@ -6,6 +6,13 @@
  */
 module.exports = {
 
+    spawnRatio: {
+        "totalPeace": 5,
+        "harvester": 2,
+        "builder": 3,
+        "totalWar": 10
+    },
+
     /**
      *
      * @param {StructureSpawn} spawn
@@ -19,14 +26,14 @@ module.exports = {
                         filter: function (creep) {
                             return creep.memory.role === "harvester"
                         }
-                    }).length < (roomScale * (3 / 5))) {
+                    }).length < Math.ceil(roomScale * (this.spawnRatio.harvester / this.spawnRatio.totalPeace))) {
                     return "harvester";
                 } else if (spawn.room.find(FIND_MY_CREEPS,
                     {
                         filter: function (creep) {
                             return creep.memory.role === "builder"
                         }
-                    }).length < (roomScale * (2 / 5))) {
+                    }).length < Math.floor(roomScale * (this.spawnRatio.builder / this.spawnRatio.totalPeace))) {
                     return "builder"
                 }
                 else {
